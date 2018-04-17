@@ -1,28 +1,38 @@
 package br.edu.utfpr.magnocarvalho.prova.prova1turma2magno;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "br.edu.utfpr.magnocarvalho.prova.prova1turma2magno.MESSAGE";
-
+     private ConstraintLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        layout = (ConstraintLayout) findViewById(R.id.layoutCont);
     }
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
@@ -62,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
          //   MenuInflater inflater = getMenuInflater();
          //  inflater.inflate(R.menu.game_menu, menu);
           //   return true;
-        // }
 
     public void limparPrincipal(View view){
 
@@ -71,13 +80,38 @@ public class MainActivity extends AppCompatActivity {
         //final  RadioButton radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         //final  RadioButton radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
         final RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
-
         nome.setText("");
         rg.clearCheck();
-
-
-
-
        // super.onRestart();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.principal, menu);
+        return true;
+    }
+    public void salvar(MenuItem item){
+        Toast.makeText(this, "Salvar", Toast.LENGTH_SHORT).show();
+    }
+
+    public void usarDados(MenuItem item){
+        item.setChecked(!item.isChecked());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        item.setChecked(true);
+
+        switch(item.getItemId()){
+            case R.id.menuItemAjuda:
+                setContentView(R.layout.activity_ajuda);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
 }
