@@ -11,4 +11,7 @@
     <string name="Voltar">back</string>
     <string name="title_activity_settings">Settings</string>
     <string name="configuracao">help</string>
+    <string name="Parabens">Congratulations</string>
+    <string name="VidaBoa">life´s Good</string>
+    <string name="Naopreucupe">Do not worry</string>
 </resources>

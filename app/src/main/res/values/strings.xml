@@ -82,4 +82,7 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="configuracao">Ajuda</string>
+    <string name="Parabens">Parabéns</string>
+    <string name="Naopreucupe">Não se preocupe</string>
+    <string name="VidaBoa">Que vida boa</string>
 </resources>

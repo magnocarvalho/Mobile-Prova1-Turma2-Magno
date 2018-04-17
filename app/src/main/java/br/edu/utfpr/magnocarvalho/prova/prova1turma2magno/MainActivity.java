@@ -46,13 +46,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        lerPreferencias();
+
 
         rb = findViewById(R.id.radioGroup);
         textView = findViewById(R.id.textView);
         radioButton1 = (RadioButton) findViewById(R.id.radioButton);
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
+
+      //  lerPreferencias();
 
 //        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 //
@@ -64,32 +66,33 @@ public class MainActivity extends AppCompatActivity {
 //        ab.setDisplayHomeAsUpEnabled(true);
     }
 
-//    public void lerPreferencias()
-//    {
-//        SharedPreferences shared =
-//                getSharedPreferences(MyPREFERENCES,
-//                        Context.MODE_PRIVATE);
-//
-//        String test = shared.getString(Name, null);
-//        Integer id = shared.getInt(check, 0);
-//        if(test != "" && id != 0 && test != null){
-//            if(id == 1)
-//            {
-//                radioButton1.setChecked(true);
-//            }
-//            else
-//            if(id == 2)
-//            {
-//                radioButton3.setChecked(true);
-//            }
-//            else
-//            if(id == 3)
-//            {
-//                radioButton3.setChecked(true);
-//            }
-//                textView.setText(test);
-//        }
-//    }
+    public void lerPreferencias()
+    {
+        SharedPreferences shared =
+                getSharedPreferences(MyPREFERENCES,
+                        Context.MODE_PRIVATE);
+        String test = "";
+        test = shared.getString(Name, test);
+        Integer id = 0;
+               id = shared.getInt(check, id);
+        if(test != "" && id != 0 && test != null){
+            if(id == 1)
+            {
+                radioButton1.setChecked(true);
+            }
+            else
+            if(id == 2)
+            {
+                radioButton3.setChecked(true);
+            }
+            else
+            if(id == 3)
+            {
+                radioButton3.setChecked(true);
+            }
+                textView.setText(test);
+        }
+    }
 
 
 
@@ -106,19 +109,19 @@ public class MainActivity extends AppCompatActivity {
         boolean rb3 = radioButton3.isChecked();
         Integer idRadio = 0;
         if(rb1)
-        {   message = "Parabéns ";
+        {   message = getString(R.string.Parabens);
             idRadio = 1;
         }
         else
             if(rb2)
         {
-            message = "Não se preocupe  ";
+            message = getString(R.string.Naopreucupe);
             idRadio = 2;
         }
         else
             if(rb3)
         {
-            message = "Que vida boa ";
+            message = getString(R.string.VidaBoa);
             idRadio = 3;
         }
         message += editText.getText().toString();
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(Name, editText.getText().toString());
+        editor.putString(Name, editText.toString());
         editor.putInt(check, idRadio);
         editor.commit();
 
