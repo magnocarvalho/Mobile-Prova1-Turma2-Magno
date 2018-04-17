@@ -25,6 +25,12 @@ public class DicaActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textView);
         textView.setText(message);
 
+
+
+    }
+    public void voltarPrincipal(View view)
+    {
+        setContentView(R.layout.activity_main);
     }
 
 }

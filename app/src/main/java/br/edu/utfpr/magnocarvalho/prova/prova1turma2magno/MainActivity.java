@@ -2,6 +2,8 @@ package br.edu.utfpr.magnocarvalho.prova.prova1turma2magno;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -55,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+        // public boolean onCreateOptionsMenu(Menu menu) {
+         //   MenuInflater inflater = getMenuInflater();
+         //  inflater.inflate(R.menu.game_menu, menu);
+          //   return true;
+        // }
+
     public void limparPrincipal(View view){
 
         final EditText nome = (EditText) findViewById(R.id.editTextNome);
