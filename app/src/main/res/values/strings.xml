@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Prova1Turma2Magno</string>
+    <string name="nome">Nome</string>
+    <string name="Empregado">Empregado</string>
+    <string name="Desempregado">Desempregado</string>
+    <string name="Naoprocuraocupacao">Não procura ocupação</string>
+    <string name="Dica">Dica</string>
+    <string name="Limpar">Limpar</string>
+    <string name="title_activity_dica">Dica</string>
+</resources>
