@@ -30,7 +30,8 @@ public class DicaActivity extends AppCompatActivity {
     }
     public void voltarPrincipal(View view)
     {
-        setContentView(R.layout.activity_main);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prova1Turma2Magno</string>
+    <string name="nome">name</string>
+    <string name="Empregado">employee</string>
+    <string name="Desempregado">Unemployed</string>
+    <string name="Naoprocuraocupacao">Do not seek occupation</string>
+    <string name="Dica">tip</string>
+    <string name="Limpar">clean</string>
+    <string name="title_activity_dica">tip</string>
+    <string name="Voltar">back</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="configuracao">help</string>
+</resources>

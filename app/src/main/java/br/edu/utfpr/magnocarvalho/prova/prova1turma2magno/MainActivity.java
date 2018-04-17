@@ -1,6 +1,7 @@
 package br.edu.utfpr.magnocarvalho.prova.prova1turma2magno;
 
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -27,13 +28,25 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "br.edu.utfpr.magnocarvalho.prova.prova1turma2magno.MESSAGE";
-     private ConstraintLayout layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        layout = (ConstraintLayout) findViewById(R.id.layoutCont);
+
+//        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+//
+//        setSupportActionBar(myToolbar);
+//
+//        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+//        ab.setDisplayHomeAsUpEnabled(true);
     }
+
+
+
+
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
         // Do something in response to button
@@ -65,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         }
         message += editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message + '!');
+        this.onPause();
         startActivity(intent);
 
     }
@@ -75,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void limparPrincipal(View view){
 
+        Intent intent = new Intent(this, MainActivity.class);
         final EditText nome = (EditText) findViewById(R.id.editTextNome);
         //final  RadioButton radioButton1 = (RadioButton) findViewById(R.id.radioButton);
         //final  RadioButton radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
@@ -82,35 +97,20 @@ public class MainActivity extends AppCompatActivity {
         final RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
         nome.setText("");
         rg.clearCheck();
+
+        startActivity(intent);
        // super.onRestart();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.principal, menu);
-        return true;
-    }
-    public void salvar(MenuItem item){
-        Toast.makeText(this, "Salvar", Toast.LENGTH_SHORT).show();
-    }
 
-    public void usarDados(MenuItem item){
-        item.setChecked(!item.isChecked());
+    public void abrirAjuda(View view)
+    {
+        Intent intent = new Intent(this, AjudaActivity.class);
+        this.onPause();
+        startActivity(intent);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
 
-        item.setChecked(true);
-
-        switch(item.getItemId()){
-            case R.id.menuItemAjuda:
-                setContentView(R.layout.activity_ajuda);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
 
 
